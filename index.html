@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Realtime Chat</title>
+  </head>
+  <body>
+    <div id="message-container">
+      <div class="message user">Hello! How's it going?</div>
+      <div class="message other">Hi! All good, just started my day.</div>
+      <div class="message other">What about you?</div>
+      <div class="message user">
+        I'm doing well, thanks! Any plans for the weekend?
+      </div>
+      <div class="message user">I'm thinking of going hiking.</div>
+      <div class="message user">How about joining me?</div>
+      <div class="message other">Sounds fun! I'd love to join.</div>
+    </div>
+    <form id="message-form">
+      <input type="text" name="" id="message-input" />
+      <button type="submit">></button>
+    </form>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
