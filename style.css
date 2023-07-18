@@ -16,6 +16,21 @@ body {
   overflow: hidden;
 }
 
+header {
+  position: absolute;
+  top: 50px;
+  margin: 0;
+  padding: 0;
+  color: #f4f6f8;
+}
+
+.name {
+  color: #999;
+  font-size: 0.8rem;
+  margin-right: auto;
+  margin-left: 16px;
+}
+
 #message-container {
   width: 100%;
   max-width: 500px;
