@@ -31,6 +31,13 @@ socket.on("user-connected", (name) => {
   }, 3000);
 });
 
+socket.on("user-disconnected", (name) => {
+  header.textContent = `${name} has left.`;
+  setTimeout(() => {
+    header.textContent = " ";
+  }, 3000);
+});
+
 // form submit
 // creates a user message
 messageForm.addEventListener("submit", (e) => {

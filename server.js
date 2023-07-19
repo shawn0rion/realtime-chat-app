@@ -14,23 +14,22 @@ const users = {};
 
 io.on("connection", (socket) => {
   socket.on("new-user", (name) => {
-    console.log("cause event?");
     users[socket.id] = name;
-    // let other users now that there is a new user
+    // send event to everyone else
     socket.broadcast.emit("user-connected", name);
   });
+
+  // listen for user message from client
   socket.on("send-chat-message", (message) => {
-    // the output will be user: message, so pass object
+    // send event to everyone else
     const user = users[socket.id];
     socket.broadcast.emit("chat-message", { message, name: user });
   });
+
+  // listen for user disconnect from client
+  socket.on("disconnect", () => {
+    // send event to everyone else
+    socket.broadcast.emit("user-disconnected", users[socket.id]);
+    delete users[socket.id];
+  });
 });
-
-// // listen for new message
-
-// // listen for user disconnect
-// socket.on("disconnect", () => {
-//   socket.broadcast.emit("user-disconnected", users[socket.id]);
-//   delete users[socket.id];
-// });
-//});
